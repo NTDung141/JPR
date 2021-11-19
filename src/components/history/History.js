@@ -9,7 +9,6 @@ function History() {
         dateTime: new Date(),
         content: [],
     })
-    
 
     const onClickViewDetail = (item) => {
         setDetailItem(item)
@@ -23,14 +22,18 @@ function History() {
                         allResult.map((item, index) => {
                             return (
                                 <div onClick={() => onClickViewDetail(item)}
-                                        data-bs-whatever={index}
-                                        key={index}>
+                                    data-bs-whatever={index}
+                                    key={index}>
                                     <div className="history-item">
-                                        <div className="history-item-date">{new Date(item.dateTime).toLocaleDateString()}</div>
+                                        <div className="history-item-time-content">
+                                            <div className="history-item-date-time">
+                                                <div className="history-item-date">{new Date(item.dateTime).toLocaleDateString()}</div>
 
-                                        <div className="history-item-time">{new Date(item.dateTime).toLocaleTimeString()}</div>
+                                                <div className="history-item-time">{new Date(item.dateTime).toLocaleTimeString()}</div>
+                                            </div>
 
-                                        <div className="history-item-content cursor-pointer" data-bs-toggle="modal" data-bs-target="#exampleModal">{item.content.join('').length > 20 ? `${item.content.join(' ').slice(0, 20)}...` : item.content.join('')}</div>
+                                            <div className="history-item-content cursor-pointer" data-bs-toggle="modal" data-bs-target="#exampleModal">{item.content.join('').length > 20 ? `${item.content.join(' ').slice(0, 20)}...` : item.content.join('')}</div>
+                                        </div>
 
                                         <div className="history-item-action">
                                             <i className="fas fa-times cursor-pointer" onClick={() => deleteHistory(index)}></i>
@@ -97,7 +100,7 @@ function History() {
                     </button>
                 </div>
                 :
-                <div>
+                <div className="text-center">
                     <h3>No result</h3>
                 </div>
             }

@@ -1,4 +1,3 @@
-
 .history-page-action {
     display: flex;
     justify-content: flex-end;
@@ -9,11 +8,21 @@
 
 .history-item {
     display: grid;
-    grid-template-columns: 2fr 3fr 6fr 1fr;
+    grid-template-columns: 11fr 1fr;
     border: 1px solid gray;
     border-radius: 3px;
     min-height: 40px;
     margin-top: 20px;
+}
+
+.history-item-time-content {
+    display: grid;
+    grid-template-columns: 5fr 6fr;
+}
+
+.history-item-date-time {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
 }
 
 .history-item-date {
@@ -44,4 +53,15 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
+}
+
+@media only screen and (max-width: 768px) {
+    .history-item-time-content {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .history-item-content {
+        margin-left: 20px;
+    }
 }

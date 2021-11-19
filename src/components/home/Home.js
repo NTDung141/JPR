@@ -29,7 +29,7 @@ function Home() {
             else {
                 toast.error("Allowed image types are png, jpg, jpeg", {
                     position: "bottom-left",
-                    autoClose: 7000,
+                    autoClose: 3000,
                     hideProgressBar: false,
                     closeOnClick: true,
                     pauseOnHover: true,
@@ -42,12 +42,12 @@ function Home() {
 
     const getText = async () => {
         setResultArray([])
-        
+
         try {
             const formData = new FormData()
             formData.append("file", selectedFile)
             setLoading(true)
-            const res = await axios.post("http://3.21.145.54:5000/predict", formData)
+            const res = await axios.post("https://be.phamvantanh.online/predict", formData)
             console.log(res.data)
             if (res.status === 200) {
                 setLoading(false)
@@ -100,7 +100,7 @@ function Home() {
 
                     <div className="action">
                         <input type="file" style={{ visibility: "hidden" }} id="file" accept="image/png, image/jpeg" onChange={changeFileHandle} />
-                            
+
                         <label for="file" className="cursor-pointer">
                             <span className="file-button">
                                 <i className="fa fa-upload mr-2" aria-hidden="true" disabled={loading ? true : false}></i>
@@ -126,7 +126,7 @@ function Home() {
                         </div>
 
                         <div className="result-text-area">
-                            {loading && <LoadingComponent />} 
+                            {loading && <LoadingComponent />}
                             {
                                 resultArray.map((item, index) =>
                                     <p key={index}>{item}</p>
