@@ -36,7 +36,7 @@ function History() {
                                         </div>
 
                                         <div className="history-item-action">
-                                            <i className="fas fa-times cursor-pointer" onClick={() => deleteHistory(index)}></i>
+                                            <i className="fas fa-times cursor-pointer" id="clear-item-history-btn" onClick={() => deleteHistory(index)}></i>
                                         </div>
                                     </div>
                                 </div>
@@ -94,7 +94,7 @@ function History() {
             {(allResult && allResult.length > 0)
                 ?
                 <div className="history-page-action">
-                    <button type="button" className="btn btn-danger" onClick={() => deleteAllHistory()}>
+                    <button id="clear-all-history-btn" type="button" className="btn btn-danger" onClick={() => deleteAllHistory()}>
                         <i className="fas fa-trash mr-2"></i>
                         Clear all
                     </button>
